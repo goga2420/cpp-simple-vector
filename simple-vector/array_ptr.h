@@ -24,16 +24,16 @@ public:
     ArrayPtr(const ArrayPtr&) = delete;
     
     ArrayPtr(ArrayPtr<Type>&& other)
-        {
-            raw_ptr_ = std::move(other.raw_ptr_);
-            other.raw_ptr_ = nullptr;
-        }
+    {
+        std::swap(raw_ptr_, other.raw_ptr_);
+        other.raw_ptr_ = nullptr;
+    }
     
     ArrayPtr& operator=(ArrayPtr<Type>&& other)
     {
         if(this == &other)
             return this;
-        raw_ptr_ = std::move(other.raw_ptr_);
+        std::swap(raw_ptr_, other.raw_ptr_);
         return this;
     }
 

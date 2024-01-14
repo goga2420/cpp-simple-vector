@@ -218,7 +218,7 @@ public:
     // Удаляет элемент вектора в указанной позиции
     Iterator Erase(ConstIterator pos) {
         
-        assert(pos >= begin() && pos <= end());
+        assert(pos >= begin() && pos < end());
         
         if (size_ == 0 || capacity_ == 0) {
             return nullptr;
